@@ -1,0 +1,14 @@
+groups:
+  - name: camera_metrics
+    rules:
+      - record: camera_total_detections
+        expr: sum(object_detections_total)
+        
+      - record: camera_detections_by_id
+        expr: sum by(camera_id) (object_detections_total)
+        
+      - record: detections_by_class
+        expr: sum by(class_name) (object_detections_total)
+        
+      - record: detection_rate
+        expr: rate(object_detections_total[1m])

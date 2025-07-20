@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mantine/core": "^7.15.2",
+    "@mantine/dropzone": "^7.15.2",
+    "@mantine/hooks": "^7.15.2",
+    "@mantine/notifications": "^7.15.2",
+    "@tabler/icons-react": "^3.26.0",
+    "axios": "^1.7.9",
+    "framer-motion": "^11.16.0",
+    "styled-components": "^6.1.14"
+  }
+}

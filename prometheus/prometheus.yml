@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s     # How frequently to scrape targets
+  evaluation_interval: 15s  # How frequently to evaluate rules
+
+rule_files:
+  - 'rules.yml'
+
+scrape_configs:
+  - job_name: 'camera_detection_system'
+    static_configs:
+      - targets: ['host.docker.internal:8000']  # Only keep this one
+    metrics_path: '/metrics'   # FastAPI exposes metrics at /metrics

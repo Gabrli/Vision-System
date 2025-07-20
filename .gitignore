@@ -1,0 +1,157 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+.env/
+virtualenv/
+venv.bak/
+venv*/
+pyvenv.cfg
+.python-version
+
+# Python cache
+*.py[cod]
+*$py.class
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+*.sage.py
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build output
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Testing
+coverage/
+.nyc_output/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.tox/
+noxfile_config.json
+
+# Cache directories
+.cache/
+.npm/
+.yarn/
+.pnpm-store/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Docker
+.dockerignore
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Package files
+*.tar.gz
+*.zip
+
+# Frontend specific
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+
+# Backend specific
+instance/
+.webassets-cache
+celerybeat-schedule
+celerybeat.pid
+*.egg
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.manifest
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# Monitoring
+prometheus/data/
+
+# Additional cache files
+*.bak
+*.swn
+*.orig
+*~
+.~lock.*
+.directory
+.Trash-*
+.nfs*

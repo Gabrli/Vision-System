@@ -1,0 +1,20 @@
+{{template "head" .}}
+
+<h1>Camera Detection System Dashboard</h1>
+
+<h3>Active Cameras</h3>
+<div id="graph1">
+{{template "graph" (args "camera_streams_active")}}
+</div>
+
+<h3>Total Detections</h3>
+<div id="graph2">
+{{template "graph" (args "camera_total_detections")}}
+</div>
+
+<h3>Detections by Camera</h3>
+<div id="graph3">
+{{template "graph" (args "camera_detections_by_id")}}
+</div>
+
+{{template "tail"}} 
