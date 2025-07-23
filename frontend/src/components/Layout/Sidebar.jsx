@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   Drawer,
@@ -9,31 +8,19 @@ import {
   ListItemText,
   IconButton,
   useTheme,
-} from '@mui/material';
-import {
-  Home,
-  Dashboard,
-  Videocam,
-  Science,
-  Settings,
-  Brightness4,
-  Brightness7,
-} from '@mui/icons-material';
-import { useLocation, useNavigate } from 'react-router-dom';
-import logo from '../../assets/nielsen-ai-logo.avif';
+} from "@mui/material";
+import { Brightness4, Brightness7 } from "@mui/icons-material";
+import { useLocation, useNavigate } from "react-router-dom";
+import logo from "../../assets/NIELSEN AI.PNG";
+import { MENU_ITEMS } from "../../constants/menuItems";
 
 const drawerWidth = 240;
 
-const menuItems = [
-  { text: 'Home', icon: <Home />, path: '/' },
-  { text: 'Dashboard', icon: <Dashboard />, path: '/dashboard' },
-  { text: 'Live Analysis', icon: <Videocam />, path: '/live-analysis' },
-  { text: 'Charts', icon: <Science />, path: '/charts' },
-  { text: 'Settings', icon: <Settings />, path: '/settings' },
-];
-
 const Sidebar = ({ toggleTheme }) => {
-  const theme = useTheme();
+  const { palette } = useTheme();
+  const { background, divider, text, primary } = palette;
+  const { mode } = palette
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -43,32 +30,30 @@ const Sidebar = ({ toggleTheme }) => {
       sx={{
         width: drawerWidth,
         flexShrink: 0,
-        '& .MuiDrawer-paper': {
+        "& .MuiDrawer-paper": {
           width: drawerWidth,
-          boxSizing: 'border-box',
-          borderRight: `1px solid ${theme.palette.divider}`,
-          backgroundColor: theme.palette.mode === 'light'
-            ? '#fff'
-            : theme.palette.background.default,
+          boxSizing: "border-box",
+          borderRight: `1px solid ${divider}`,
+          backgroundColor: mode === "light" ? "#fff" : background.default,
         },
       }}
     >
       <Box
         sx={{
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <Box
           sx={{
             p: 2,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderBottom: `1px solid ${theme.palette.divider}`,
-            minHeight: '80px',
-            backgroundColor: theme.palette.mode === 'dark' ? '#1a1a1a' : '#fff',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderBottom: `1px solid ${divider}`,
+            minHeight: "80px",
+            backgroundColor: mode === "dark" ? "#1a1a1a" : "#fff",
           }}
         >
           <Box
@@ -76,17 +61,17 @@ const Sidebar = ({ toggleTheme }) => {
             src={logo}
             alt="Logo"
             sx={{
-              width: '160px',
-              height: 'auto',
-              maxHeight: '60px',
-              objectFit: 'contain',
-              filter: theme.palette.mode === 'light' ? 'invert(1) brightness(0.2)' : 'none',
+              width: "160px",
+              height: "auto",
+              maxHeight: "60px",
+              objectFit: "contain",
+              filter: mode === "light" ? "invert(1) brightness(0.2)" : "none",
             }}
           />
         </Box>
 
         <List sx={{ flexGrow: 1 }}>
-          {menuItems.map(({ text, icon, path }) => (
+          {MENU_ITEMS.map(({ text, icon, path }) => (
             <ListItem key={text} disablePadding>
               <ListItemButton
                 selected={location.pathname === path}
@@ -95,14 +80,16 @@ const Sidebar = ({ toggleTheme }) => {
                   mx: 1,
                   my: 0.5,
                   borderRadius: 2,
-                  '&.Mui-selected': {
-                    backgroundColor: theme.palette.mode === 'light'
-                      ? 'rgba(25, 118, 210, 0.08)'
-                      : 'rgba(144, 202, 249, 0.08)',
-                    '&:hover': {
-                      backgroundColor: theme.palette.mode === 'light'
-                        ? 'rgba(25, 118, 210, 0.12)'
-                        : 'rgba(144, 202, 249, 0.12)',
+                  "&.Mui-selected": {
+                    backgroundColor:
+                      mode === "light"
+                        ? "rgba(25, 118, 210, 0.08)"
+                        : "rgba(144, 202, 249, 0.08)",
+                    "&:hover": {
+                      backgroundColor:
+                        mode === "light"
+                          ? "rgba(25, 118, 210, 0.12)"
+                          : "rgba(144, 202, 249, 0.12)",
                     },
                   },
                 }}
@@ -110,9 +97,10 @@ const Sidebar = ({ toggleTheme }) => {
                 <ListItemIcon
                   sx={{
                     minWidth: 40,
-                    color: location.pathname === path
-                      ? theme.palette.primary.main
-                      : theme.palette.text.secondary,
+                    color:
+                      location.pathname === path
+                        ? primary.main
+                        : text.secondary,
                   }}
                 >
                   {icon}
@@ -120,11 +108,12 @@ const Sidebar = ({ toggleTheme }) => {
                 <ListItemText
                   primary={text}
                   sx={{
-                    '& .MuiListItemText-primary': {
+                    "& .MuiListItemText-primary": {
                       fontWeight: location.pathname === path ? 600 : 400,
-                      color: location.pathname === path
-                        ? theme.palette.text.primary
-                        : theme.palette.text.secondary,
+                      color:
+                        location.pathname === path
+                          ? text.primary
+                          : text.secondary,
                     },
                   }}
                 />
@@ -137,21 +126,23 @@ const Sidebar = ({ toggleTheme }) => {
           <IconButton
             onClick={toggleTheme}
             sx={{
-              width: '100%',
+              width: "100%",
               borderRadius: 2,
               p: 1.5,
-              color: theme.palette.text.secondary,
-              backgroundColor: theme.palette.mode === 'light'
-                ? 'rgba(0, 0, 0, 0.04)'
-                : 'rgba(255, 255, 255, 0.04)',
-              '&:hover': {
-                backgroundColor: theme.palette.mode === 'light'
-                  ? 'rgba(0, 0, 0, 0.08)'
-                  : 'rgba(255, 255, 255, 0.08)',
+              color: text.secondary,
+              backgroundColor:
+                mode === "light"
+                  ? "rgba(0, 0, 0, 0.04)"
+                  : "rgba(255, 255, 255, 0.04)",
+              "&:hover": {
+                backgroundColor:
+                  mode === "light"
+                    ? "rgba(0, 0, 0, 0.08)"
+                    : "rgba(255, 255, 255, 0.08)",
               },
             }}
           >
-            {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+            {mode === "dark" ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
         </Box>
       </Box>

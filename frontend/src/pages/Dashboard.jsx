@@ -30,7 +30,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     textTransform: 'none',
     fontSize: '0.875rem',
     fontWeight: 500,
-    color: theme.palette.text.secondary,
+    color: 'rgba(0, 0, 0, 0.6)',
     '&:hover': {
       backgroundColor: 'rgba(25, 118, 210, 0.08)',
     },
@@ -112,7 +112,7 @@ const Dashboard = () => {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
+    <Box sx={{ p: 3 }} >
       <Box sx={{ 
         display: 'flex', 
         justifyContent: 'space-between', 
